@@ -16,7 +16,8 @@ namespace CaseCustomer.Infrastructure.EntitiesConfiguration
             builder.HasKey(t => t.Id);
             builder.Property(p => p.Nome).HasMaxLength(100).IsRequired();        
             builder.Property(p => p.DataNascimento).IsRequired();
-            builder.Property(p => p.Endereco).HasMaxLength(200).IsRequired();
+            builder.Property(p => p.Endereco).HasMaxLength(100).IsRequired();
+            builder.Property(p => p.DocumentoNumero).HasMaxLength(14).IsRequired();
             builder.Property(p => p.DataCadastro).IsRequired();
             builder.Property(p => p.ClienteAtivo).HasMaxLength(3); 
 

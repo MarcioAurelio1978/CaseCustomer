@@ -25,6 +25,11 @@ namespace CaseCustomer.Application.DTOs
         [MaxLength(100)]
         public string Endereco { get; set; }
 
+        [Required(ErrorMessage = "O número do documento é obrigatório")]
+        [MinLength(9)]
+        [MaxLength(14)]
+        public string DocumentoNumero { get; set; }
+
         [Required(ErrorMessage = "Informe a data do cadastro")]
         public DateTime DataCadastro { get; set; }
 
