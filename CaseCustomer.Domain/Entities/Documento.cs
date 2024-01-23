@@ -9,34 +9,30 @@ namespace CaseCustomer.Domain.Entities
 {
     public sealed class Documento : Entity
     {
-        public Documento(string nome, string numero)
+        public Documento(string nome)
         {
-            ValidateDomain(nome, numero);
+            ValidateDomain(nome);
         }
 
-        public Documento(int id, string nome, string numero)
+        public Documento(int id, string nome)
         {
             DomainExceptionValidation.When(id < 0, "valor de Id inválido.");
             Id = id;
-            ValidateDomain(nome, numero);
+            ValidateDomain(nome);
         }
 
 
-        public string Nome { get; private set; }
-        public string Numero { get; private set; }
+        public string Nome { get; private set; }   
         public ICollection<Cliente> Clientes { get; set; }
 
 
-        private void ValidateDomain(string nome, string numero)
+
+        private void ValidateDomain(string nome)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(nome),
                 "Nome inválido. O nome é obrigatório");
-
-            DomainExceptionValidation.When(string.IsNullOrEmpty(numero),
-                "Número inválido. O numero é obrigatório");           
-
-            Nome = nome;
-            Numero = numero;
+           
+            Nome = nome;     
         }
     }
 }

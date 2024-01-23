@@ -14,12 +14,7 @@ namespace CaseCustomer.Application.DTOs
         [Required(ErrorMessage = "Informe o nome do documento")]
         [MinLength(2)]
         [MaxLength(30)]
-        public string Nome { get; set; }
-
-        [Required(ErrorMessage = "Informe o número do documento")]
-        [MinLength(9)]
-        [MaxLength(14)]
-        public string Numero { get; set; }
+        public string Nome { get; set; }      
 
     }
 }
