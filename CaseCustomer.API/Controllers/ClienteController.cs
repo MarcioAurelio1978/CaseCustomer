@@ -3,6 +3,7 @@ using System;
 using CaseCustomer.Application.DTOs;
 using CaseCustomer.Application.Interfaces;
 using CaseCustomer.Domain.Entities;
+using CaseCustomer.Infrastructure;
 
 
 namespace CaseCustomer.API.Controllers
@@ -47,10 +48,31 @@ namespace CaseCustomer.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _clienteService.Add(clienteDto);
+            //validar cpf
+            if (clienteDto.DocumentoId == 1)
+            {
+                var resultCPF = new CPFCNPJ.Main();
+                var result = resultCPF.IsValidCPFCNPJ(clienteDto.DocumentoNumero);
+                if (result == false)
+                {
+                    return BadRequest("CPF inválido!");
+                }
+            }          
 
-            return new CreatedAtRouteResult("GetCliente",
-                new { id = clienteDto.Id }, clienteDto);
+            //verificar se cpf existe
+            var cpfCli = _clienteService.GetClientes().Result.Where(c => c.DocumentoNumero == clienteDto.DocumentoNumero && c.DocumentoId == 1).First().ToString();
+
+            if (cpfCli == null)
+            {
+                await _clienteService.Add(clienteDto);
+
+                return new CreatedAtRouteResult("GetCliente",
+                    new { id = clienteDto.Id }, clienteDto);
+            }
+            else
+            {
+                return BadRequest("Cliente cadastrado com o CPF informado!");
+            }                  
         }
 
         [HttpPut("{id}")]
