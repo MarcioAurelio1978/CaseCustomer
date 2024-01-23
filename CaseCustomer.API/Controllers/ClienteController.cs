@@ -12,10 +12,11 @@ namespace CaseCustomer.API.Controllers
     public class ClienteController : Controller
     {
         private readonly IClienteService _clienteService;
+       
 
         public ClienteController(IClienteService clienteService)
         {
-            _clienteService = clienteService;
+            _clienteService = clienteService;   
         }
 
         // api/clientes

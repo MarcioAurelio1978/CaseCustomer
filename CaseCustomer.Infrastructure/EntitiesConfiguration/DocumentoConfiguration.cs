@@ -17,6 +17,7 @@ namespace CaseCustomer.Infrastructure.EntitiesConfiguration
             builder.Property(p => p.Nome).HasMaxLength(100).IsRequired();
             builder.Property(p => p.Numero).HasMaxLength(100).IsRequired();
 
+            //popular tabelas 
             builder.HasData(
               new Documento(1, "CPF", "27614673883"),
               new Documento(2, "RG", "290169462")             

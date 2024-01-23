@@ -30,6 +30,7 @@ namespace CaseCustomer.Domain.Entities
             DocumentoId = documentoId;
         }
 
+        //opção de validação direto na entidade para somente oque for prioritario ex: email, docs 
         private void ValidateDomain(string nome, DateTime dataNascimento, string endereco, DateTime dataCadastro,bool clienteAtivo)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(nome),
