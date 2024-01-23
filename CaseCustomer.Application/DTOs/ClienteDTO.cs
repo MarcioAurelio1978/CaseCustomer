@@ -13,7 +13,7 @@ namespace CaseCustomer.Application.DTOs
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório")]
-        [MinLength(15)]
+        [MinLength(3)]
         [MaxLength(100)]
         public string Nome { get; set; }
 
@@ -21,14 +21,14 @@ namespace CaseCustomer.Application.DTOs
         public DateTime DataNascimento { get; set; }
 
         [Required(ErrorMessage = "O endereço é obrigatório")]
-        [MinLength(10)]
-        [MaxLength(150)]
+        [MinLength(5)]
+        [MaxLength(100)]
         public string Endereco { get; set; }
 
         [Required(ErrorMessage = "Informe a data do cadastro")]
         public DateTime DataCadastro { get; set; }
 
-        public DateTime ClienteAtivo { get; set; }
+        public bool ClienteAtivo { get; set; }
 
         public int DocumentoId { get; set; }
 

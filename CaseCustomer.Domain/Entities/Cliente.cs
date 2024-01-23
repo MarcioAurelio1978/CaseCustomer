@@ -35,16 +35,13 @@ namespace CaseCustomer.Domain.Entities
             DomainExceptionValidation.When(string.IsNullOrEmpty(nome),
                 "Nome inválido. O nome é obrigatório");
 
-            DomainExceptionValidation.When(nome.Length < 15,
-                "O nome deve ter no mínimo 15 caracteres");
+            DomainExceptionValidation.When(nome.Length < 3,
+                "O nome deve ter no mínimo 3 caracteres");
 
 
             DomainExceptionValidation.When(string.IsNullOrEmpty(endereco),
-                "Descrição inválida. O endereço é obrigatóroa");          
+                "Descrição inválida. O endereço é obrigatóroa");         
 
-  
-
-            
 
             Nome = nome;
             DataNascimento = dataNascimento;

@@ -19,8 +19,7 @@ namespace CaseCustomer.Infrastructure.EntitiesConfiguration
 
             builder.HasData(
               new Documento(1, "CPF", "27614673883"),
-              new Documento(2, "RG", "290169462"),
-              new Documento(3, "Titulo Eleitor", "123987456")
+              new Documento(2, "RG", "290169462")             
             );
         }
     }
